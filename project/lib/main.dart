@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(fontFamily: GoogleFonts.poppins().fontFamily),
+        theme: ThemeData(fontFamily: GoogleFonts.outfit().fontFamily),
         debugShowCheckedModeBanner: false,
         home: MyHomePage());
   }
@@ -47,6 +47,7 @@ class MyFoodContainer extends StatelessWidget {
       color: Color(0xff063382),
       child: Column(
         children: [
+          Decorations(),
           Text(
             "Popular Dishes",
             style: TextStyle(
@@ -180,6 +181,36 @@ class MyIcons extends StatelessWidget {
       ),
     );
 
+    throw UnimplementedError();
+  }
+}
+
+class Decorations extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      Align(
+          alignment: Alignment(-0.1, -1),
+          child: Container(
+            height: 200,
+            width: 200,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage('assets/graph.png'),
+              fit: BoxFit.contain,
+            )),
+            child: RotatedBox(
+                quarterTurns: 4,
+                child: Image(
+                  width: 20,
+                  height: 20,
+                  fit: BoxFit.contain,
+                  image: AssetImage(
+                    'assets/soda.png',
+                  ),
+                )),
+          ))
+    ]);
     throw UnimplementedError();
   }
 }
