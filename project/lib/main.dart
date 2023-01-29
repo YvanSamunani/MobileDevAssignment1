@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:project/about.dart';
 import 'image_banner.dart';
-//pages
-//import './about.dart';
+
 
 enum MenuOption { cart, logIn, signUp }
 
@@ -80,9 +78,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             const ImageBanner("assets/images/cover.jpg"),
             const MyFoodContainer(),
-            FoodPage(),
-            FoodPage2(),
-            FoodPage3()
+            const FoodPage(),
+            const FoodPage2(),
+            const FoodPage3()
           ],
         ),
       ),
@@ -106,7 +104,14 @@ class MyFoodContainer extends StatelessWidget {
         color: Colors.teal,
         child: Column(
           children: [
-            Decorations(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                const Decorations(),
+                const Decorations(),
+              ],
+            ),
             const Text(
               "Popular Dishes",
               style: TextStyle(
@@ -168,16 +173,17 @@ class MyFoodContainer extends StatelessWidget {
                                 image: NetworkImage(
                                     'https://img.freepik.com/free-photo/greek-salad-with-fresh-tomato-cucumber-red-onion-basil-feta-cheese-black-olives-italian-herbs_2829-4480.jpg?w=740&t=st=1674907546~exp=1674908146~hmac=2223489b8a025863efc82d2cf9ecb9f83a7c213a894c614af2153f3cee9d21ca'),
                               ),
-                              MyIcons()
+                              const MyIcons()
                             ],
                           )),
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 300,
                   width: 250,
                   child: Card(
+                    // ignore: sort_child_properties_last
                     child: FittedBox(
                         child: Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -193,7 +199,7 @@ class MyFoodContainer extends StatelessWidget {
                               width: 200,
                               image: NetworkImage(
                                   "https://cdn.britannica.com/08/177308-050-94D9D6BE/Food-Pizza-Basil-Tomato.jpg")),
-                          MyIcons()
+                          const MyIcons()
                         ],
                       ),
                     )),
@@ -206,32 +212,34 @@ class MyFoodContainer extends StatelessWidget {
         ),
       ),
     );
-    throw UnimplementedError();
   }
 }
 
+// This class is used to impelemnt the icon widgets for the different food card widgets in th application
 class MyIcons extends StatelessWidget {
+  const MyIcons({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 200,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const FaIcon(
+          children: const [
+            FaIcon(
               FontAwesomeIcons.heart,
               color: Color(0xffFB4D3D),
               size: 18,
             ),
-            const FaIcon(
+            FaIcon(
               FontAwesomeIcons.penToSquare,
               color: Color(0xffFB4D3D),
               size: 18,
             ),
-            const FaIcon(
+            FaIcon(
               FontAwesomeIcons.trash,
               color: Color(0xffFB4D3D),
               size: 18,
@@ -240,12 +248,13 @@ class MyIcons extends StatelessWidget {
         ),
       ),
     );
-
-    throw UnimplementedError();
   }
 }
 
+// This class has the rotated box implementation where we set the glass image a different angle
 class Decorations extends StatelessWidget {
+  const Decorations({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -271,7 +280,6 @@ class Decorations extends StatelessWidget {
                 )),
           ))
     ]);
-    throw UnimplementedError();
   }
 }
 
@@ -303,81 +311,81 @@ class PopupOptionMenu extends StatelessWidget {
 
 //CONSTRAINED BOX
 class FoodPage extends StatelessWidget {
+  const FoodPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: Container(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 600,
-            maxHeight: 600,
-          ),
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Container(
-                  height: 300,
-                  width: 300,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          'https://img.freepik.com/free-photo/delicious-meat-sandwich-with-tomatoes-green-dark-surface-close-up-shot_179666-42483.jpg?w=740&t=st=1674990173~exp=1674990773~hmac=c71f23ff5868b2d4f40e9e54d9ccad1ab59b40eae858e130dd01b11328d5257b'),
-                      fit: BoxFit.contain,
-                    ),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: 600,
+          maxHeight: 600,
+        ),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                height: 300,
+                width: 300,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        'https://img.freepik.com/free-photo/delicious-meat-sandwich-with-tomatoes-green-dark-surface-close-up-shot_179666-42483.jpg?w=740&t=st=1674990173~exp=1674990773~hmac=c71f23ff5868b2d4f40e9e54d9ccad1ab59b40eae858e130dd01b11328d5257b'),
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: <Widget>[
-                    const Text(
-                      'Food Name',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
+            ),
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: <Widget>[
+                  const Text(
+                    'Food Name',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  ConstrainedBox(
+                      constraints: const BoxConstraints.expand(
+                        height: 150,
+                        width: 400,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ConstrainedBox(
-                        constraints: const BoxConstraints.expand(
-                          height: 150,
-                          width: 400,
+                      child: const Text(
+                        "Juicy, big, loaded with toppings of my choice."
+                        "High quality beef medium to well with cheese and bacon on a multigrain bun."
+                        "A huge single or triple burger with all the fixings, cheese, lettuce, tomato, onions and special sauce or mayonnaise!",
+                        style: TextStyle(
+                          fontSize: 18,
                         ),
-                        child: Text(
-                          "Juicy, big, loaded with toppings of my choice."
-                          "High quality beef medium to well with cheese and bacon on a multigrain bun."
-                          "A huge single or triple burger with all the fixings, cheese, lettuce, tomato, onions and special sauce or mayonnaise!",
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        )),
-                    const SizedBox(
-                      height: 10,
+                      )),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.teal,
+                      borderRadius: BorderRadius.circular(5),
                     ),
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.teal,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Order Now',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Order Now',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -386,6 +394,8 @@ class FoodPage extends StatelessWidget {
 
 //SIZEDBOX
 class FoodPage2 extends StatelessWidget {
+  const FoodPage2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -411,15 +421,15 @@ class FoodPage2 extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     ConstrainedBox(
-                        constraints:
-                            BoxConstraints.expand(height: 150, width: 400),
+                        constraints: const BoxConstraints.expand(
+                            height: 150, width: 400),
                         child: const Text(
                           'One family, a chip truck and Australia’s festival scene. Our fries are made from locally sourced, fresh Aussie potatoes, cooked with their skins on in a sustainable non-gmo cottonseed sunflower oil blend and ready to be enjoyed with any of our internationally inspired dipping sauces. ',
                           style: TextStyle(
                             fontSize: 18,
                           ),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Container(
@@ -451,9 +461,11 @@ class FoodPage2 extends StatelessWidget {
 // CONTAINER AND PADDING
 
 class FoodPage3 extends StatelessWidget {
+  const FoodPage3({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 400,
       child: Container(
         padding: const EdgeInsets.all(20),
