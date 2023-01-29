@@ -44,7 +44,7 @@ class MyFoodContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 600,
-      color: Color(0xff063382),
+      color: Colors.teal,
       child: Column(
         children: [
           Decorations(),
@@ -190,7 +190,7 @@ class Decorations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Align(
-          alignment: Alignment(-0.1, -1),
+          alignment: Alignment(-1.0, -1.0),
           child: Container(
             height: 200,
             width: 200,
@@ -200,7 +200,7 @@ class Decorations extends StatelessWidget {
               fit: BoxFit.contain,
             )),
             child: RotatedBox(
-                quarterTurns: 4,
+                quarterTurns: 2,
                 child: Image(
                   width: 20,
                   height: 20,
