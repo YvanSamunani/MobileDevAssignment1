@@ -140,7 +140,7 @@ class MyFoodContainer extends StatelessWidget {
                                   fit: BoxFit.contain,
                                   alignment: Alignment.bottomCenter,
                                   image: NetworkImage(
-                                      'https://img.freepik.com/free-photo/mojito-drink-with-lime-lemon-mint-wood-table_1150-12269.jpg?w=740&t=st=1674906598~exp=1674907198~hmac=ebdab7d1a248181c26a0a5ee1939288be39ca1c7f7f2aaee2ad15ad56a9cc78a')),
+                                      'https://unsplash.com/photos/M_rP0MPjDIc')),
                               MyIcons()
                             ],
                           )),
