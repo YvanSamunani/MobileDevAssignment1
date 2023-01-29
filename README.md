@@ -4,6 +4,7 @@
 ## Introduction
 
 In this project, we implement the differernt widgets layouts such as the fittedbox , sizedbox, rotatedbox and other widgets to implement a simple landing page for a food app
+</br>
 ![Screenshot from 2023-01-29 12-13-30](https://user-images.githubusercontent.com/90448343/215317007-afda16a0-c099-433a-9989-7258161b296f.png)
 
 
