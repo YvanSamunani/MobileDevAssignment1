@@ -202,7 +202,6 @@ class MyFoodContainer extends StatelessWidget {
                 ),
               ],
             ),
-          
           ],
         ),
       ),
@@ -306,68 +305,79 @@ class PopupOptionMenu extends StatelessWidget {
 class FoodPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(
-          maxWidth: 600,
-          maxHeight: 600,
-        ),
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        'https://images.unsplash.com/photo-1515003197124-58a7cdd8c5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
-                    fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 600,
+            maxHeight: 600,
+          ),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://img.freepik.com/free-photo/delicious-meat-sandwich-with-tomatoes-green-dark-surface-close-up-shot_179666-42483.jpg?w=740&t=st=1674990173~exp=1674990773~hmac=c71f23ff5868b2d4f40e9e54d9ccad1ab59b40eae858e130dd01b11328d5257b'),
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: <Widget>[
-                  const Text(
-                    'Food Name',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  const Text(
-                    'Food Description',
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.teal,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Order Now',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
+              Container(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: <Widget>[
+                    const Text(
+                      'Food Name',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
                       ),
                     ),
-                  ),
-               
-                ],
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ConstrainedBox(
+                        constraints: const BoxConstraints.expand(
+                          height: 150,
+                          width: 400,
+                        ),
+                        child: Text(
+                          "Juicy, big, loaded with toppings of my choice."
+                          "High quality beef medium to well with cheese and bacon on a multigrain bun."
+                          "A huge single or triple burger with all the fixings, cheese, lettuce, tomato, onions and special sauce or mayonnaise!",
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        )),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Order Now',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -378,55 +388,61 @@ class FoodPage extends StatelessWidget {
 class FoodPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Container(
-            height: 200,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                    'https://images.unsplash.com/photo-1515003197124-58a7cdd8c5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
-                fit: BoxFit.cover,
+    return SizedBox(
+      child: Container(
+        height: 500,
+        width: 300,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 200,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                      'https://img.freepik.com/free-photo/crispy-french-fries-with-ketchup-mayonnaise_1150-26588.jpg?w=740&t=st=1674990269~exp=1674990869~hmac=b3079b5fc3c8328606c668e87aca211f99a850ae05fca6489bd55c3476a675d0'),
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: <Widget>[
-                const Text(
-                  'Food Description',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Order Now',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+            SizedBox(
+              height: 300,
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: <Widget>[
+                    ConstrainedBox(
+                        constraints:
+                            BoxConstraints.expand(height: 150, width: 400),
+                        child: const Text(
+                          'One family, a chip truck and Australia’s festival scene. Our fries are made from locally sourced, fresh Aussie potatoes, cooked with their skins on in a sustainable non-gmo cottonseed sunflower oil blend and ready to be enjoyed with any of our internationally inspired dipping sauces. ',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        )),
+                    SizedBox(
+                      height: 10,
                     ),
-                  ),
+                    Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Order Now',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -438,6 +454,7 @@ class FoodPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 400,
       child: Container(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -447,13 +464,10 @@ class FoodPage3 extends StatelessWidget {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
-                      'https://images.unsplash.com/photo-1515003197124-58a7cdd8c5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
-                  fit: BoxFit.cover,
+                      "https://img.freepik.com/free-photo/yogurt-with-mixed-berries_1339-7898.jpg?w=740&t=st=1674991155~exp=1674991755~hmac=29cf31ce8cdece7814edab9e22658798e7997b25b0e5dfc95b5653831eccc1ef"),
+                  fit: BoxFit.contain,
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
             ),
             const Text(
               'Food Description',
@@ -461,21 +475,21 @@ class FoodPage3 extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.teal,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Order Now',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.teal,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Order Now',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ),
