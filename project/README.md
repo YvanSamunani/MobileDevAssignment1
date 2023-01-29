@@ -1,16 +1,14 @@
-# project
+# EATPLANET
 
-A new Flutter project.
+## Introduction
 
-## Getting Started
+In this project, we implement the differernt widgets layouts such as the fittedbox , sizedbox, rotatedbox and other widgets to implement a simple landing page for a food app
 
-This project is a starting point for a Flutter application.
+![Screenshot from 2023-01-29 12-13-30](https://user-images.githubusercontent.com/90448343/215316738-b1535514-6392-4145-b4a9-2f2320164a93.png)
 
-A few resources to get you started if this is your first Flutter project:
+## Contributors
+* Yvan Samunani
+* Nancy Gachee
+* Ivy Murage
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
