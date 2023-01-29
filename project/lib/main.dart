@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project/about.dart';
+// import 'package:project/about.dart';
 import 'image_banner.dart';
 //pages
-import './about.dart';
+//import './about.dart';
 
-enum MenuOption { Cart, LogIn, SignUp }
+enum MenuOption { cart, logIn, signUp }
 
 class TextStyles {
-  TextStyle textStyle = TextStyle(
+  TextStyle textStyle = const TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 18,
   );
 }
 
 class MyColors {
-  Color myColors = Color(0xFFEBF5EE);
+  Color myColors = const Color(0xFFEBF5EE);
 }
 
 void main() {
@@ -33,10 +33,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Eatplanet',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
-        fontFamily: GoogleFonts.outfit().fontFamily
-      ),
-
+          primarySwatch: Colors.teal,
+          fontFamily: GoogleFonts.outfit().fontFamily),
       home: const MyHomePage(title: 'Welcome to Eatplanet'),
     );
   }
@@ -57,8 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: <Widget>[
-          const PopupOptionMenu(),
+        actions: const <Widget>[
+          PopupOptionMenu(),
         ],
       ),
       drawer: Drawer(
@@ -81,7 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             const ImageBanner("assets/images/cover.jpg"),
-            MyFoodContainer()
+            const MyFoodContainer(),
+            FoodPage(),
+            FoodPage2(),
+            FoodPage3()
           ],
         ),
       ),
@@ -94,21 +95,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
 class MyFoodContainer extends StatelessWidget {
   const MyFoodContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      
       child: Container(
         height: 650.0,
         color: Colors.teal,
         child: Column(
           children: [
             Decorations(),
-            Text(
+            const Text(
               "Popular Dishes",
               style: TextStyle(
                 color: Colors.white,
@@ -120,11 +119,14 @@ class MyFoodContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
+                  height: 300,
+                  width: 250,
                   child: Card(
+                    color: MyColors().myColors,
                     child: FittedBox(
                       child: Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Column(
                             children: [
                               Text(
@@ -143,16 +145,16 @@ class MyFoodContainer extends StatelessWidget {
                             ],
                           )),
                     ),
-                    color: MyColors().myColors,
                   ),
+                ),
+                SizedBox(
                   height: 300,
                   width: 250,
-                ),
-                Container(
                   child: Card(
+                    color: MyColors().myColors,
                     child: FittedBox(
                       child: Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Column(
                             children: [
                               Text("Salad",
@@ -170,16 +172,15 @@ class MyFoodContainer extends StatelessWidget {
                             ],
                           )),
                     ),
-                    color: MyColors().myColors,
                   ),
-                  height: 300,
-                  width: 250,
                 ),
                 Container(
+                  height: 300,
+                  width: 250,
                   child: Card(
                     child: FittedBox(
                         child: Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
                         children: [
                           Text("Pizza",
@@ -198,11 +199,10 @@ class MyFoodContainer extends StatelessWidget {
                     )),
                     color: MyColors().myColors,
                   ),
-                  height: 300,
-                  width: 250,
                 ),
               ],
             ),
+          
           ],
         ),
       ),
@@ -251,16 +251,16 @@ class Decorations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Align(
-          alignment: Alignment(-1.0, -1.0),
+          alignment: const Alignment(-1.0, -1.0),
           child: Container(
             height: 200,
             width: 200,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
               image: AssetImage('assets/graph.png'),
               fit: BoxFit.contain,
             )),
-            child: RotatedBox(
+            child: const RotatedBox(
                 quarterTurns: 2,
                 child: Image(
                   width: 20,
@@ -285,19 +285,203 @@ class PopupOptionMenu extends StatelessWidget {
       itemBuilder: (BuildContext context) {
         return <PopupMenuEntry<MenuOption>>[
           const PopupMenuItem(
+            value: MenuOption.cart,
             child: Text('Add to Cart'),
-            value: MenuOption.Cart,
           ),
           const PopupMenuItem(
+            value: MenuOption.logIn,
             child: Text('Log in'),
-            value: MenuOption.LogIn,
           ),
           const PopupMenuItem(
+            value: MenuOption.signUp,
             child: Text('Sign up'),
-            value: MenuOption.SignUp,
           ),
         ];
       },
+    );
+  }
+}
+
+//CONSTRAINED BOX
+class FoodPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: 600,
+          maxHeight: 600,
+        ),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        'https://images.unsplash.com/photo-1515003197124-58a7cdd8c5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: <Widget>[
+                  const Text(
+                    'Food Name',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'Food Description',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.teal,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Order Now',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+               
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+//SIZEDBOX
+class FoodPage2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 200,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://images.unsplash.com/photo-1515003197124-58a7cdd8c5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: <Widget>[
+                const Text(
+                  'Food Description',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.teal,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Order Now',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// CONTAINER AND PADDING
+
+class FoodPage3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 200,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                      'https://images.unsplash.com/photo-1515003197124-58a7cdd8c5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'Food Description',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.teal,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'Order Now',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

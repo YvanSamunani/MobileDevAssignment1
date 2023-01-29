@@ -18,7 +18,7 @@ class ImageBanner extends StatelessWidget {
             fit: BoxFit.cover,
           )),
       Container(
-        height: 500,
+        height: 700,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
