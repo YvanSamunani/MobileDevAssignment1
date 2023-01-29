@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'image_banner.dart';
 
-
+// setting menu items for the popup class in a list
 enum MenuOption { cart, logIn, signUp }
 
 class TextStyles {
@@ -47,14 +47,16 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+// This class is creating a side menu on a the app bar
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        //creating the app bar
         title: Text(widget.title),
         actions: const <Widget>[
-          PopupOptionMenu(),
+          PopupOptionMenu(), // calling the class creating the popup menu widget
         ],
       ),
       drawer: Drawer(
@@ -78,9 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             const ImageBanner("assets/images/cover.jpg"),
             const MyFoodContainer(),
-            const FoodPage(),
-            const FoodPage2(),
-            const FoodPage3()
+            const FoodPage(), // calling the constrained box class
+            const FoodPage2(), //calling sized box class
+            const FoodPage3() // calling a class implementing container and padding
           ],
         ),
       ),
@@ -93,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+// this class is creating three cards and adding padding in between the cards
 class MyFoodContainer extends StatelessWidget {
   const MyFoodContainer({super.key});
 
@@ -283,6 +286,7 @@ class Decorations extends StatelessWidget {
   }
 }
 
+// This class is used to create a pop up menu
 class PopupOptionMenu extends StatelessWidget {
   const PopupOptionMenu({super.key});
 
